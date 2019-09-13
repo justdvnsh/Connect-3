@@ -6,29 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/img1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:onClick="fade"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/imag1" />
-
-    <ImageView
-        android:id="@+id/img2"
+    <androidx.gridlayout.widget.GridLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="241dp"
-        android:layout_marginBottom="242dp"
-        android:alpha="1"
-        android:onClick="fadeAgain"
-        android:translationX="1000dp"
+        android:layout_height="300dp"
+        android:background="@drawable/board2"
+        app:columnCount="7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/imag2" />
+        app:rowCount="6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

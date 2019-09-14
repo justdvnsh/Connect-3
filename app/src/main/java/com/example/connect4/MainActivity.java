@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,13 +56,47 @@ public class MainActivity extends AppCompatActivity {
                       activeSlots[winningComb[1]] == activeSlots[winningComb[2]] &&
                       activeSlots[winningComb[0]] != -1) {
 
-                    Toast.makeText(MainActivity.this,
-                            "Player " + activePlayer + " won.", Toast.LENGTH_LONG).show();
+                    String Winner = "Red";
 
+                    if ( activeSlots[winningComb[0]] == 0 ) {
+                        Winner = "Yellow";
+                    }
+
+                    LinearLayout winnerLayout = ( LinearLayout ) findViewById(R.id.winnerLayout);
+
+                    winnerLayout.setVisibility(View.VISIBLE);
+
+                    TextView winner = ( TextView ) findViewById(R.id.winner);
+
+                    winner.setText(Winner + "  won.");
                 }
 
             }
         }
+    }
+
+    public void playAgain(View view) {
+
+        LinearLayout winnerLayout = ( LinearLayout ) findViewById(R.id.winnerLayout);
+
+        winnerLayout.setVisibility(View.INVISIBLE);
+
+        activePlayer = 0;
+
+        for ( int i = 0; i < activeSlots.length; i++ ) {
+
+            activeSlots[i] = -1;
+
+        }
+
+        GridLayout grid = ( GridLayout ) findViewById(R.id.grid);
+
+        for ( int i = 0; i < grid.getChildCount(); i++ ) {
+
+            ((ImageView) grid.getChildAt(i)).setImageResource(0);
+
+        }
+
     }
 
     @Override
